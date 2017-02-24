@@ -17,3 +17,7 @@ $ ./env/bin/pip install -r pip_requirements.txt
 ./control status 查看进程状态
 ./control tail 用tail -f的方式查看var/app.log
 ```
+## TODO_LIST
+1 回调地址验证
+2 邮件发送评论通知
+3 ifttt评论消息提醒
