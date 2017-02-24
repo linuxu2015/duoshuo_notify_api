@@ -18,6 +18,6 @@ $ ./env/bin/pip install -r pip_requirements.txt
 ./control tail 用tail -f的方式查看var/app.log
 ```
 ## TODO_LIST
-1 回调地址验证
-2 邮件发送评论通知
-3 ifttt评论消息提醒
+1. 回调地址验证
+2. 邮件发送评论通知
+3. ifttt评论消息提醒
