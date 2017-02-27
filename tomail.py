@@ -8,10 +8,10 @@ from email.utils import formataddr
 def email(message):
     #构造MIMEText对象,第一个参数就是邮件正文,第二个参数是MIME的subtype
     # 传入'plain'，最终的MIME就是'text/plain'，最后一定要用utf-8编码保证多语言兼容性。
-    '''msg = MIMEText(message, 'plain', 'utf-8')'''   #message为传入的参数,为发送的消息.
-    msg = MIMEText('<html><body><h1>Hello</h1>' +
+    msg = MIMEText(message, 'plain', 'utf-8')   #message为传入的参数,为发送的消息.
+    """msg = MIMEText('<html><body><h1>Hello</h1>' +
     '<p>send by <a href="http://www.python.org">Python</a>...</p>' +
-    '</body></html>%s' %message, 'html', 'utf-8')
+    '</body></html>%s' %message, 'html', 'utf-8')"""
     #标准邮件需要三个头部信息： From, To, 和 Subject。
     msg['From'] = formataddr(["多说评论通知",'xulibao@everyoo.com'])     #显示发件人信息
     msg['To'] = formataddr(["QQ",'371044414@qq.com'])          #显示收件人信息

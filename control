@@ -33,8 +33,9 @@ function start() {
         return 1
     fi
 
-    gunicorn -c gunicorn.conf wsgi:app -D -t 6000 --pid $pidfile --error-logfile var/error.log --log-level info \
-    --enable-stdio-inheritance --log-file=$logfile --access-logfile var/access.log &> $logfile
+    #gunicorn -c gunicorn.conf wsgi:app -D -t 6000 --pid $pidfile --error-logfile var/error.log --log-level debug \
+    #--enable-stdio-inheritance --log-file=$logfile --access-logfile var/access.log &> $logfile
+    gunicorn -c gunicorn.conf wsgi:app -D -t 6000 --pid $pidfile --error-logfile var/error.log --log-level debug --log-file=$logfile --access-logfile var/access.log &> $logfile
     sleep 1
     echo -n "$app started..., pid="
     cat $pidfile

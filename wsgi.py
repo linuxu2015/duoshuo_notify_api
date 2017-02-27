@@ -1,9 +1,13 @@
 #!/usr/bin/env python
 #coding:utf-8
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
 from flask import Flask
 from flask import jsonify
 from flask import request
 import get_duoshuo
+import tomail
 app = Flask(__name__)
 status = [
     {
@@ -23,7 +27,15 @@ def send():
     if request.method == 'POST':
         tos = request.form.get('action')
         sig = request.form.get('signature')
-        get_duoshuo.get_newdata()
+      #  print tos,sig
+        newest = get_duoshuo.get_newdata()
+     #   print newest
+        #print newest[2]
+        data = newest[1]+ 'http://www.linuxu.top/' + newest[0] +'  :'+ newest[2]
+    #    print data
+        #print data
+        tomail.email(data)
+
         return jsonify({'resp':status})
     elif request.method == 'GET':
         return jsonify({'resp':errstatus})
